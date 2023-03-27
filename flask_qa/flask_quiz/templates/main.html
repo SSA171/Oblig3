@@ -1,0 +1,20 @@
+<header>
+{% if title %}
+    <title>Flask Quiz - {{ title }}</title>
+{% else %}
+    <title>Flask Quiz</title>
+{% endif %}
+</header>
+<body>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock
+        %}
+      </div>
+  </main>
+  
+</body>
